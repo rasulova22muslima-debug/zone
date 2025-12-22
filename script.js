@@ -137,10 +137,10 @@ const team3DRotation = new Card3DRotate('.team__desc-card');
 
 
 
-// window.addEventListener("scroll", () => {
-//     const scrollY = window.scrollY;
-//     const offset = scrollY * 0.3; // скорость параллакса
+window.addEventListener("scroll", () => {
+    const scrolled = window.scrollY;
+    const shift = scrolled * 0.3; // скорость параллакса
 
-//     document.body.style.backgroundPositionY = `-${offset}px`;
-// });
+    document.body.style.backgroundPositionY =` -${shift}px`;
+});
 
