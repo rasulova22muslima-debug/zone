@@ -64,6 +64,71 @@ class TypeWriterOnScroll {
 }
 let typeOnScroll = new TypeWriterOnScroll('.title__h', 100);
 
+class TypeWriter {
+    constructor(selector, speed = 100) {
+        this.element = document.querySelector(selector);
+        this.text = this.element.innerText;
+        this.element.innerText = '';
+        this.speed = speed;
+        this.index = 0;
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.type();
+                        observer.unobserve(this.element);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(this.element);
+    }
+
+    type() {
+        if (this.index < this.text.length) {
+            this.element.innerText += this.text[this.index];
+            this.index++;
+            setTimeout(() => this.type(), this.speed);
+        }
+    }
+}
+let typeWriter = new TypeWriter('.team__top-title', 100);
+
+class AnimationOnScroll {
+    constructor(selector, speed = 100) {
+        this.element = document.querySelector(selector);
+        this.text = this.element.innerText;
+        this.element.innerText = '';
+        this.speed = speed;
+        this.index = 0;
+
+        const observer = new IntersectionObserver(
+            (entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.type();
+                        observer.unobserve(this.element);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        observer.observe(this.element);
+    }
+
+    type() {
+        if (this.index < this.text.length) {
+            this.element.innerText += this.text[this.index];
+            this.index++;
+            setTimeout(() => this.type(), this.speed);
+        }
+    }
+}
+let  animationOnScroll = new  AnimationOnScroll('.news__desc-text_title', 100);
 
 
 class Card3DEffect {
@@ -137,10 +202,10 @@ const team3DRotation = new Card3DRotate('.team__desc-card');
 
 
 
-window.addEventListener("scroll", () => {
-    const scrolled= window.scrollY;
-    const shift = scrolled * 0.3; 
+// window.addEventListener("scroll", () => {
+//     const scrolled= window.scrollY;
+//     const shift = scrolled * 0.3; 
 
-    document.body.style.backgroundPositionY = `-${shift}px`;
-});
+//     document.body.style.backgroundPositionY = `-${shift}px`;
+// });
 
