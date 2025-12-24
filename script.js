@@ -202,10 +202,10 @@ const team3DRotation = new Card3DRotate('.team__desc-card');
 
 
 
-// window.addEventListener("scroll", () => {
-//     const scrolled= window.scrollY;
-//     const shift = scrolled * 0.3; 
+window.addEventListener("scroll", () => {
+    const scrolled= window.scrollY;
+    const shift = scrolled * 0.3; 
 
-//     document.body.style.backgroundPositionY = `-${shift}px`;
-// });
+    document.body.style.backgroundPositionY = `-${shift}px`;
+});
 
